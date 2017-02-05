@@ -11,11 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
 
-/**
- * Created by anupamchugh on 10/12/15.
- */
 public class Argentina extends ListFragment {
 
     public Argentina() {
@@ -26,7 +22,8 @@ public class Argentina extends ListFragment {
 
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_argentina, container, false);
 
-        String[] modismos_ar={"Bondi","Guita","Morfar","Chupar","Rati","Ramera","Chucheta"};
+        String[] modismos_ar={"Bondi","Guita","Morfar","Chupar","Rati","Ramera","Chucheta","Campera",
+        "Bombacha","Calzoncillo","Boludez","Pelotudez","Pibe","Tengo lija","Birra","Churrasco"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),R.layout.rowlayout,R.id.txtitem,modismos_ar);
         setListAdapter(adapter);
         setRetainInstance(true);

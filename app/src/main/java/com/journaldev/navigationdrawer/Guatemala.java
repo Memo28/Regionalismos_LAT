@@ -13,10 +13,10 @@ import android.widget.ArrayAdapter;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Uruguay extends ListFragment {
+public class Guatemala extends ListFragment {
 
 
-    public Uruguay() {
+    public Guatemala() {
         // Required empty public constructor
     }
 
@@ -25,13 +25,14 @@ public class Uruguay extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ViewGroup rootview = (ViewGroup) inflater.inflate(R.layout.fragment_uruguay, container, false);
+        ViewGroup rootview = (ViewGroup) inflater.inflate(R.layout.fragment_guatemala, container, false);
 
 
-        String[] modismos_ur={"Afanar","A todo trapo","Bichicome","Cana","De la Planta","Garronear","Roñoso","Terraja"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),R.layout.rowlayout,R.id.txtitem,modismos_ur);
+        String[] modismos_gu={"Chucho","Patojo","Chilero","Rieles","Puchis","Pilas"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),R.layout.rowlayout,R.id.txtitem,modismos_gu);
         setListAdapter(adapter);
         setRetainInstance(true);
+
         return rootview;
     }
 

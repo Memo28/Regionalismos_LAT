@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         setupToolbar();
 
-        DataModel[] drawerItem = new DataModel[11];
+        DataModel[] drawerItem = new DataModel[12];
 
         drawerItem[0] = new DataModel(R.drawable.ic_ar, "Argentina");
         drawerItem[1] = new DataModel(R.drawable.ic_bo, "Bolivia");
@@ -42,11 +42,12 @@ public class MainActivity extends AppCompatActivity {
         drawerItem[3] = new DataModel(R.drawable.ic_co, "Colombia");
         drawerItem[4] = new DataModel(R.drawable.ic_cr, "Costa Rica");
         drawerItem[5] = new DataModel(R.drawable.ic_ec, "Ecuador");
-        drawerItem[6] = new DataModel(R.drawable.ic_mx, "Mexico");
-        drawerItem[7] = new DataModel(R.drawable.ic_pa, "Panama");
-        drawerItem[8] = new DataModel(R.drawable.ic_pe, "Peru");
-        drawerItem[9] = new DataModel(R.drawable.ic_ur, "Uruguay");
-        drawerItem[10] = new DataModel(R.drawable.ic_ve, "Venezuela");
+        drawerItem[6] = new DataModel(R.drawable.ic_gu,"Guatemala");
+        drawerItem[7] = new DataModel(R.drawable.ic_mx, "Mexico");
+        drawerItem[8] = new DataModel(R.drawable.ic_pa, "Panama");
+        drawerItem[9] = new DataModel(R.drawable.ic_pe, "Peru");
+        drawerItem[10] = new DataModel(R.drawable.ic_ur, "Uruguay");
+        drawerItem[11] = new DataModel(R.drawable.ic_ve, "Venezuela");
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(true);
 
@@ -93,18 +94,21 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new Ecuador();
                 break;
             case 6:
-                fragment = new Mexico();
+                fragment = new Guatemala();
                 break;
             case 7:
-                fragment = new Panama();
+                fragment = new Mexico();
                 break;
             case 8:
-                fragment = new Peru();
+                fragment = new Panama();
                 break;
             case 9:
-                fragment = new Uruguay();
+                fragment = new Peru();
                 break;
             case 10:
+                fragment = new Uruguay();
+                break;
+            case 11:
                 fragment = new Venezuela();
                 break;
             default:
