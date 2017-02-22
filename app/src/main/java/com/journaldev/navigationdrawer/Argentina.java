@@ -33,7 +33,6 @@ public class Argentina extends ListFragment {
 
 
     DatabaseReference dref;
-    ListView listView;
     public Argentina() {
     }
 
@@ -64,7 +63,6 @@ public class Argentina extends ListFragment {
                         }
                     }
                 }
-
             }
 
             @Override
