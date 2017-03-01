@@ -1,5 +1,6 @@
 package com.journaldev.navigationdrawer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v4.app.Fragment;
@@ -91,9 +92,11 @@ public class Argentina extends ListFragment {
     //Listener de ListView
 
     public void onListItemClick(ListView l, View view, int position, long id){
-        ViewGroup viewGroup = (ViewGroup) view;
+       /* ViewGroup viewGroup = (ViewGroup) view;
         TextView txt = (TextView) viewGroup.findViewById(R.id.txtitem);
-        Toast.makeText(getActivity(),txt.getText().toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(),txt.getText().toString(), Toast.LENGTH_SHORT).show();*/
+        Intent intent = new Intent(Argentina.this.getActivity(), Information_Activity.class);
+        startActivity(intent);
 
 
     }
