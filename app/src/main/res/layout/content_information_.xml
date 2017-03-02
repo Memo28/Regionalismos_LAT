@@ -13,4 +13,9 @@
     tools:context="com.journaldev.navigationdrawer.Information_Activity"
     tools:showIn="@layout/activity_information_">
 
+    <TextView
+        android:id="@+id/txtv_significado"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
 </RelativeLayout>

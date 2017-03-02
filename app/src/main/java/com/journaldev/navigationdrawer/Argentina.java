@@ -25,6 +25,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 
 import static java.sql.DriverManager.println;
@@ -34,6 +35,8 @@ public class Argentina extends ListFragment {
 
 
     DatabaseReference dref;
+    final ArrayList<String> modismos_ar = new ArrayList<String>();
+    final HashMap<String,String> modismos_hash = new HashMap<String, String>();
     public Argentina() {
     }
 
@@ -42,7 +45,7 @@ public class Argentina extends ListFragment {
 
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_argentina, container, false);
         dref= FirebaseDatabase.getInstance().getReference();
-        final ArrayList<String> modismos_ar = new ArrayList<String>();
+
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),R.layout.rowlayout,R.id.txtitem,modismos_ar);
         setListAdapter(adapter);
         setRetainInstance(true);
@@ -59,6 +62,7 @@ public class Argentina extends ListFragment {
                                 DataSnapshot data_palbras = (DataSnapshot) it_palabras.next();
                                 System.out.println("Datos"+data_palbras.getKey());
                                 modismos_ar.add(data_palbras.getKey());
+                                modismos_hash.put(data_palbras.getKey(), (String) data_palbras.getValue());
                                 adapter.notifyDataSetChanged();
                             }
                         }
@@ -92,13 +96,11 @@ public class Argentina extends ListFragment {
     //Listener de ListView
 
     public void onListItemClick(ListView l, View view, int position, long id){
-       /* ViewGroup viewGroup = (ViewGroup) view;
+        ViewGroup viewGroup = (ViewGroup) view;
         TextView txt = (TextView) viewGroup.findViewById(R.id.txtitem);
-        Toast.makeText(getActivity(),txt.getText().toString(), Toast.LENGTH_SHORT).show();*/
         Intent intent = new Intent(Argentina.this.getActivity(), Information_Activity.class);
+        intent.putExtra("Significado",modismos_hash.get(txt.getText().toString()));
         startActivity(intent);
-
-
     }
 
 }

@@ -1,18 +1,34 @@
 package com.journaldev.navigationdrawer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 public class Information_Activity extends AppCompatActivity {
+
+    TextView txtv_significado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information_);
+
+        txtv_significado = (TextView) findViewById(R.id.txtv_significado);
+
+        Intent intent = getIntent();
+        Bundle significado = intent.getExtras();
+        if (significado!=null){
+            String dato = significado.getString("Significado");
+            txtv_significado.setText(dato);
+
+        }
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

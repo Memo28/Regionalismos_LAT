@@ -1,5 +1,6 @@
 package com.journaldev.navigationdrawer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -7,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -15,10 +18,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class Bolivia extends ListFragment {
     DatabaseReference dref;
+    final HashMap<String,String> modismos_hash = new HashMap<String, String>();
     public Bolivia() {
     }
 
@@ -44,6 +49,7 @@ public class Bolivia extends ListFragment {
                                 DataSnapshot data_palbras = (DataSnapshot) it_palabras.next();
                                 System.out.println("Datos"+data_palbras.getKey());
                                 modismos_ar.add(data_palbras.getKey());
+                                modismos_hash.put(data_palbras.getKey(), (String) data_palbras.getValue());
                                 adapter.notifyDataSetChanged();
                             }
                         }
@@ -73,6 +79,17 @@ public class Bolivia extends ListFragment {
             }
         });
         return rootView;
+    }
+
+
+    //Listener de ListView
+
+    public void onListItemClick(ListView l, View view, int position, long id){
+        ViewGroup viewGroup = (ViewGroup) view;
+        TextView txt = (TextView) viewGroup.findViewById(R.id.txtitem);
+        Intent intent = new Intent(Bolivia.this.getActivity(), Information_Activity.class);
+        intent.putExtra("Significado",modismos_hash.get(txt.getText().toString()));
+        startActivity(intent);
     }
 
 }
